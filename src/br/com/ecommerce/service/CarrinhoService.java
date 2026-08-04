@@ -25,5 +25,16 @@ public class CarrinhoService {
 
         System.out.println(quantidade + "x " + produto.getNome() + " adicionado ao carrinho com sucesso");
     }
+    public double calcularSubtotal(){
+        double subtotal = 0.0;
 
+        for(Map.Entry<Produto, Integer> entry : itens.entrySet()) {
+            Produto produto = entry.getKey();
+            int quantidade = entry.getValue();
+
+            subtotal += produto.getPreco() * quantidade;
+        }
+        return subtotal;
+    }
+    
 }
